@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#090909">
+<title>Poker Ledger V2.0 | 我的德州战绩</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-180.png"><link rel="icon" type="image/png" href="./icon-192.png">
+<style>
+:root{color-scheme:dark;--bg:#0c1413;--panel:#14211e;--panel2:#1a2a26;--line:#2b4039;--txt:#f0f6f0;--sub:#95aba2;--green:#6ce0a9;--red:#ff9a94;--gold:#edcc86}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#22453a 0,transparent 55%),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--txt);min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}.shell{max-width:1030px;margin:0 auto;padding:30px 22px 85px}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:29px}.logo{display:flex;align-items:center;gap:12px}.symbol{width:43px;height:43px;border:1px solid #587465;border-radius:13px;background:linear-gradient(135deg,#224638,#10251e);display:grid;place-items:center;font-size:23px;color:var(--gold)}.brand{font-weight:800;font-size:20px;letter-spacing:.3px}.tag{font-size:11px;color:var(--sub);margin-top:3px}.head-actions{display:flex;align-items:center;gap:8px}.smallbtn{border:1px solid var(--line);background:#14231e;padding:10px 13px;border-radius:10px;color:var(--txt);font-size:13px}.smallbtn:hover{border-color:#759386}.primary{border:0;border-radius:11px;background:var(--green);color:#0e2b1f;font-weight:800;padding:13px 18px}.primary:hover{filter:brightness(1.05)}.muted{color:var(--sub)}.section-title{font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:800;margin:0 0 12px}.hero{border:1px solid #355347;background:linear-gradient(120deg,#19372b,#15251f 65%,#192620);border-radius:20px;padding:28px;position:relative;overflow:hidden}.hero:after{content:'♠';position:absolute;right:20px;top:-33px;font-size:220px;color:#ffffff07;pointer-events:none}.hero-label{color:#b2cbbd;font-size:14px}.hero-value{font-size:clamp(37px,7vw,59px);font-weight:800;letter-spacing:-1.5px;margin:9px 0 8px;font-variant-numeric:tabular-nums}.green{color:var(--green)!important}.red{color:var(--red)!important}.neutral{color:#edf2ec!important}.hero-foot{color:#a7bdb2;font-size:13px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:14px}.card{background:var(--panel);border:1px solid var(--line);padding:19px 20px;border-radius:15px}.card .label{font-size:12px;color:var(--sub);margin-bottom:10px}.card .val{font-size:25px;font-weight:750;font-variant-numeric:tabular-nums}.controls{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:34px 0 16px}.controls h2{font-size:20px;margin:0}.right{display:flex;gap:9px;align-items:center}.select{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--txt);max-width:165px}.history{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:650px}th{background:#1b2d27;color:#9cbaa9;font-size:12px;text-align:left;font-weight:500;padding:15px 18px;white-space:nowrap}td{padding:17px 18px;border-top:1px solid #2b3e36;font-size:14px}td:last-child{text-align:right}th:last-child{text-align:right}.place{font-weight:700}.pill{background:#263d33;border-radius:20px;padding:5px 9px;font-size:12px;color:#b8d0c3;white-space:nowrap}.profit{font-weight:800;font-variant-numeric:tabular-nums}.textbtn{border:0;background:none;color:#b4c9bc;padding:7px}.textbtn:hover{color:white}.empty{text-align:center;padding:60px 25px;color:#9bb0a4}.empty-icon{font-size:44px;margin-bottom:13px}.footer{margin-top:24px;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;color:#7d9588;font-size:12px;line-height:1.7}.footer strong{color:var(--gold)}.modal-backdrop{position:fixed;inset:0;background:#000b;z-index:10;display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}.modal-backdrop.show{display:flex}.modal{background:#182720;border:1px solid #3a5445;border-radius:20px;width:min(100%,490px);padding:24px;box-shadow:0 30px 120px #0009;max-height:95vh;overflow-y:auto}.modal h3{margin:0 0 5px;font-size:23px}.modal .sub{font-size:13px;color:var(--sub);margin-bottom:21px}.field{margin-bottom:15px}.field label{font-size:13px;color:#bdccc3;display:block;margin-bottom:8px}.field input,.field select,.field textarea{width:100%;background:#10201a;border:1px solid #375247;border-radius:10px;padding:12px 13px;color:#edf8ee;outline:0}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green)}.field textarea{resize:vertical;min-height:67px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.segments{display:flex;background:#0f1b17;border:1px solid var(--line);padding:5px;border-radius:11px;margin-bottom:20px}.seg{width:50%;border:0;background:transparent;color:#93ada0;padding:11px 4px;border-radius:8px;font-size:13px}.seg.active{background:#2b4739;color:#a7ffd0;font-weight:750}.preview{padding:13px 14px;background:#233b30;border-radius:11px;margin:3px 0 17px;display:flex;justify-content:space-between;align-items:center;font-size:14px}.preview strong{font-size:19px}.modal-actions{display:flex;gap:10px;justify-content:space-between}.ghost{border:1px solid var(--line);background:transparent;color:var(--txt);padding:12px 17px;border-radius:10px}.error{color:var(--red);font-size:12px;min-height:20px}.toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%);background:#d6f8e2;color:#113426;padding:11px 18px;border-radius:12px;box-shadow:0 8px 50px #0008;opacity:0;transition:.2s;pointer-events:none;z-index:30;font-size:13px;max-width:90vw;text-align:center}.toast.show{opacity:1}.backup-actions{display:flex;gap:8px}.note{font-size:12px;color:#a3baa9;margin:12px 0 0;line-height:1.6}.stats{margin-top:13px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}.badge{padding:6px 9px;border-radius:9px;font-size:11px;background:#1a2f25;border:1px solid #385643;color:#a7d7b9}.danger{color:#ffadab}.hidden{display:none!important}@media(max-width:650px){.shell{padding:19px 14px 90px}.brand{font-size:17px}.symbol{width:39px;height:39px}.head{margin-bottom:23px}.smallbtn{padding:10px;font-size:12px}.head-actions .smallbtn{display:none}.hero{padding:23px}.cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.card{padding:14px 10px}.card .label{font-size:11px}.card .val{font-size:clamp(16px,4vw,22px)}.controls{flex-wrap:wrap;margin-top:29px}.controls h2{font-size:18px}.right{width:100%;justify-content:space-between}.right .primary{flex:1}.select{max-width:175px}.modal{padding:19px}.two{gap:9px}td{padding:14px} .footer{display:block}.backup-actions{margin-top:12px}}
+
+/* V1.1 Black & Gold theme */
+:root{--bg:#090909;--panel:#151515;--panel2:#202020;--line:#403727;--txt:#f6f0e4;--sub:#a69b87;--green:#dfbf74;--red:#f18d8b;--gold:#dfbf74}
+body{background:radial-gradient(ellipse at 50% -20%,#302613 0,transparent 54%),var(--bg)}
+.symbol{border-color:#8a7041;background:linear-gradient(145deg,#403117,#0c0b09)}
+.smallbtn{background:#171511}.smallbtn:hover{border-color:#dfbf74}
+.primary{background:linear-gradient(135deg,#f5df9d,#c99d4f);color:#191307}.hero{border-color:#725a30;background:linear-gradient(115deg,#2d2312,#171511 65%,#1b1710)}
+.hero-label,.hero-foot{color:#d1bc94}.card,.history{background:#141311}th{background:#211d16;color:#cab48a}td{border-top-color:#393024}
+.pill{background:#30291c;color:#e5c889}.textbtn{color:#d8c39d}.empty{color:#b6a98f}.modal{background:#171510;border-color:#70582d}
+.field label{color:#d5c6aa}.field input,.field select,.field textarea{background:#100f0d;border-color:#5b4b30;color:#f6ecd7}.segments{background:#0d0c0a}.seg{color:#a89a7f}.seg.active{background:#3b301c;color:#f9db92}.preview{background:#2b2418}.toast{background:#ebd198;color:#1b1509}.badge{background:#2b2418;border-color:#65512e;color:#e8c987}
+.chart-card{margin-top:17px;padding:22px;border:1px solid var(--line);background:linear-gradient(155deg,#1a1711,#11100e);border-radius:17px}
+.chart-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}.chart-head h2{font-size:18px;margin:0 0 6px}.chart-sub{font-size:12px;color:var(--sub)}
+.chart-tools{display:flex;gap:8px;flex-wrap:wrap}.chart-group{display:flex;gap:4px;padding:4px;border:1px solid #4a3a22;background:#0e0d0b;border-radius:10px}
+.chart-option{border:0;background:transparent;color:#b5a789;padding:7px 10px;border-radius:7px;font-size:12px;white-space:nowrap}.chart-option.active{background:#b99556;color:#171107;font-weight:750}
+.chart-viewport{position:relative;margin-top:17px;min-height:238px}.chart-viewport svg{width:100%;height:auto;display:block;overflow:visible}
+.chart-viewport .chart-grid{stroke:#55452c;stroke-width:1;stroke-dasharray:4 6;opacity:.64}.chart-viewport .chart-zero{stroke:#c9b183;stroke-width:1;stroke-dasharray:5 4;opacity:.8}
+.chart-point{cursor:pointer;outline:none}.chart-point:focus{stroke:white;stroke-width:3}.chart-details{border:1px solid #64502b;background:#211b12;border-radius:10px;min-height:42px;display:flex;align-items:center;padding:9px 12px;color:#dbc99f;font-size:12px;line-height:1.55;margin-top:4px}
+.chart-legend{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:9px;font-size:11px;color:#9e927d}.legend-dot{display:inline-block;border-radius:50%;width:8px;height:8px;background:#d9b66d;margin-right:5px}
+.chart-no-data{height:220px;display:grid;place-items:center;text-align:center;color:#a99c86;font-size:13px}
+@media(max-width:650px){.chart-card{padding:16px 12px}.chart-head h2{font-size:16px}.chart-tools{width:100%;justify-content:space-between}.chart-option{padding:7px 8px;font-size:11px}.chart-viewport{min-height:170px}}
+
+/* V1.2 additions */
+.ext-section{margin-top:19px;padding:20px;background:#141311;border:1px solid var(--line);border-radius:17px}.ext-section h2{font-size:18px;margin:0 0 15px}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.metric{background:#211c15;border:1px solid #433722;border-radius:11px;padding:13px}.metric .k{font-size:12px;color:#afa08a}.metric .v{font-size:21px;color:#e5c27b;font-weight:750;margin-top:7px}.location-row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #3e3323;font-size:13px}.location-row:last-child{border:0}.quickplaces{display:flex;gap:7px;flex-wrap:wrap;margin:7px 0}.quickplace{border:1px solid #775f35;background:#2a2217;color:#ead09a;padding:6px 11px;border-radius:99px;font-size:12px}.inline-tools{display:flex;gap:8px;flex-wrap:wrap}.dangerbtn{border:1px solid #884d4b;color:#eaa3a1;background:#241717;border-radius:9px;padding:8px 12px}.trash-card{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px;border-bottom:1px solid #463725}.trash-card:last-child{border:0}.trash-card small{color:#b9a991}.mini-btn{border:1px solid #8a7041;color:#edcd8c;background:#282013;border-radius:8px;padding:7px 10px}.subline{font-size:11px;color:var(--sub);margin-top:5px}.time-help{font-size:11px;color:#c1af8d}.two-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:740px){.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two-cols{grid-template-columns:1fr}.ext-section{padding:15px}.metric .v{font-size:18px}}@media(max-width:430px){.inline-tools .smallbtn{padding:8px}.history .table-wrap{overflow-x:auto}}
+</style>
+
+<style>
+[hidden]{display:none!important}
+.auth-gate{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at top,#392b12,#080808 62%)}
+.auth-panel{width:min(100%,420px);border:1px solid #65502c;border-radius:22px;background:#15120e;padding:30px;box-shadow:0 25px 90px #0008;text-align:center}
+.auth-icon{margin:auto;background:linear-gradient(135deg,#f7df9a,#ab8134);color:#15100a;width:60px;height:60px;border-radius:18px;display:grid;place-items:center;font-size:36px}
+.auth-panel h1{font-size:25px;letter-spacing:1.2px;color:#edcf89;margin:16px 0 3px}.auth-panel>p{color:#aa9a7d;font-size:13px;margin-bottom:22px}
+.auth-tabs{display:flex;background:#231e16;border-radius:11px;padding:4px;margin-bottom:21px}.auth-tabs button{flex:1;border:0;background:transparent;color:#baac91;padding:11px;border-radius:8px}.auth-tabs button.active{background:#be9856;color:#181108;font-weight:750}
+.auth-panel form{text-align:left}.auth-panel label{display:block;color:#d7c6a7;font-size:13px;margin:14px 0 7px}.auth-panel input{width:100%;padding:13px;border:1px solid #64502f;background:#100e0b;color:#f7e9cf;border-radius:10px}
+.auth-panel .auth-submit{width:100%;margin-top:8px}.auth-link{border:0;background:none;color:#e0c47f;margin:18px auto 0;font-size:13px}
+.auth-panel .note{text-align:center}.head-actions{flex-wrap:wrap;justify-content:flex-end}.head-actions #logout{display:block}
+@media(max-width:650px){.head{align-items:flex-start}.brand{font-size:16px}.head-actions #logout{font-size:11px;padding:9px}}
+</style>
+</head><body>
+<div id="authGate" class="auth-gate"><section class="auth-panel"><div class="auth-icon">♠</div><h1>POKER LEDGER</h1><p>V2.0 · 个人云端战绩</p><div class="auth-tabs"><button type="button" id="loginTab" class="active">登录</button><button type="button" id="registerTab">注册</button></div><form id="authForm"><label for="email">邮箱</label><input type="email" id="email" required autocomplete="email" placeholder="you@example.com"><label for="password">密码（至少 6 位）</label><input type="password" id="password" required minlength="6" autocomplete="current-password" placeholder="输入密码"><p id="authError" role="alert" class="error"></p><button id="authSubmit" type="submit" class="primary auth-submit">登录</button></form><button id="resetPassword" class="auth-link" type="button">忘记密码？发送重置邮件</button><div class="note" id="authHint">每个账号只可以查看和管理自己的战绩。</div></section></div>
+<div class="shell" id="appShell" hidden>
+<header class="head"><div class="logo"><div class="symbol">♠</div><div><div class="brand">POKER LEDGER</div><div class="tag">我的德州战绩 · 个人云端账本</div></div></div><div class="head-actions"><button class="smallbtn" id="logout" type="button">退出登录</button><button class="smallbtn" id="exportTop">↓ 备份数据</button><button class="primary" id="addTop">＋ 记一场</button></div></header>
+<p class="section-title">MY PERFORMANCE / 战绩总览</p><section class="hero"><div class="hero-label">累计净输赢 · CNY</div><div id="net" class="hero-value neutral">¥0</div><div class="hero-foot" id="netDetail">记录你的第一场牌局，开始统计</div><div class="stats"><span class="badge" id="saved">等待登录…</span><span class="badge" id="who">仅本人可见</span></div></section>
+<div class="cards"><div class="card"><div class="label">总场次</div><div id="count" class="val">0 <span style="font-size:12px;color:var(--sub)">场</span></div></div><div class="card"><div class="label">盈利场次</div><div id="wins" class="val green">0</div></div><div class="card"><div class="label">亏损场次</div><div id="losses" class="val red">0</div></div></div>
+
+<div class="controls"><h2>📋 牌局记录 <span id="recordN" class="muted" style="font-size:13px;font-weight:400"></span></h2><div class="right"><select id="filter" class="select" aria-label="选择月份"><option value="all">全部时间</option></select><button id="add" class="primary">＋ 新增牌局</button></div></div>
+<div class="history"><div class="table-wrap"><table id="table"><thead><tr><th>日期</th><th>地点</th><th>人数</th><th>类型 / 盲注</th><th>时长</th><th>录入方式</th><th>净输赢</th><th>操作</th></tr></thead><tbody id="rows"></tbody></table></div><div class="empty" id="empty"><div class="empty-icon">♣</div><div>还没有记录</div><p style="font-size:13px">点击「新增牌局」保存你的第一场战绩</p></div></div>
+<section class="ext-section"><h2>📊 高级战绩分析</h2><div class="metric-grid" id="advancedStats"></div><p class="time-help">统计随「月份筛选」变化；每小时盈亏仅计算填写了有效游戏时长的牌局。</p></section>
+<section class="ext-section"><div class="two-cols"><div><h2>📍 地点战绩</h2><div id="locationStats"></div></div><div><h2>♻ 回收站与撤销</h2><div class="inline-tools"><button class="smallbtn" id="undo" disabled>↶ 撤销上一步</button><button class="smallbtn" id="toggleTrash">查看回收站 <span id="trashCount">(0)</span></button></div><div id="trashBox" class="hidden" style="margin-top:12px"></div><p class="time-help">删除的牌局会保留在账号回收站；最近一次新增、修改、删除或恢复可撤销。</p></div></div></section>
+<section class="chart-card" aria-label="累计盈亏趋势图">
+ <div class="chart-head"><div><h2>📈 累计盈亏趋势</h2><div class="chart-sub">每一场牌局结束后的累计战绩 · 自动更新</div></div>
+ <div class="chart-tools"><div class="chart-group" id="chartRanges" aria-label="趋势图时间范围"><button class="chart-option" data-range="7">7天</button><button class="chart-option" data-range="30">30天</button><button class="chart-option" data-range="90">90天</button><button class="chart-option active" data-range="all">全部</button></div><div class="chart-group" id="chartAxes" aria-label="横轴显示方式"><button class="chart-option active" data-axis="session">按场次</button><button class="chart-option" data-axis="date">按日期</button></div></div></div>
+ <div class="chart-viewport" id="chartViewport" aria-live="polite"></div><div class="chart-details" id="chartDetails">新增牌局后，趋势图会自动展示每场累计输赢。</div>
+ <div class="chart-legend"><span><i class="legend-dot"></i>累计盈亏</span><span>虚线表示盈亏平衡线 ¥0</span><span>点按曲线查看具体牌局</span></div>
+</section>
+<div class="footer"><div><strong>数据安全提醒：</strong>登录后数据保存在你的私人 Firestore 空间，成功同步后可在其他设备登录查看。网络中断时请确认保存状态；建议定期下载 JSON 备份。</div><div class="backup-actions"><button class="smallbtn" id="export">↓ 导出备份</button><button class="smallbtn" id="import">↑ 恢复备份</button><input type="file" id="file" accept=".json,application/json" hidden></div></div>
+</div>
+<div id="modal" class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-label="新增或编辑牌局"><h3 id="modalTitle">记录新牌局</h3><p class="sub">两种录入方式任选，自动计算本场输赢。</p><form id="form"><div class="segments" role="tablist"><button type="button" id="tabNet" class="seg active">⚡ 直接填写净输赢</button><button type="button" id="tabCalc" class="seg">🧮 买入 / 带走金额</button></div><div class="two"><div class="field"><label for="date">牌局日期 *</label><input type="date" id="date" required></div><div class="field"><label for="players">几人局 *</label><select id="players" required><option value="">请选择</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div></div><div class="field"><label for="place">地点 *</label><input id="place" maxlength="60" placeholder="例如：朋友家 / 牌局 A" required><div class="quickplaces" id="quickPlaces"></div></div>
+<div class="two"><div class="field"><label for="gameType">牌局类型</label><select id="gameType"><option value="cash">现金局</option><option value="tournament">锦标赛</option></select></div><div class="field"><label for="stakes">盲注级别（选填）</label><input id="stakes" maxlength="32" placeholder="例如 1/2、2/5"></div></div>
+<div class="two"><div class="field"><label for="startTime">开始时间（选填）</label><input type="datetime-local" id="startTime"></div><div class="field"><label for="endTime">结束时间（选填）</label><input type="datetime-local" id="endTime"></div></div><div class="time-help" id="durationPreview">填写开始和结束时间后自动计算时长及每小时输赢（允许跨午夜）。</div><div id="netFields" class="field"><label for="netInput">本场净输赢 (¥) * — 盈利填正数，亏损填负数</label><input type="number" id="netInput" step="0.01" placeholder="例如 800 或 -500" inputmode="decimal"></div><div id="calcFields" class="two hidden"><div class="field"><label for="buyin">总买入 (¥) *</label><input type="number" id="buyin" step="0.01" min="0" placeholder="例如 1000" inputmode="decimal"></div><div class="field"><label for="cashout">最后带走 (¥) *</label><input type="number" id="cashout" step="0.01" min="0" placeholder="例如 1800" inputmode="decimal"></div></div><div class="preview"><span>本场净输赢</span><strong id="preview" class="neutral">¥0</strong></div><div class="field"><label for="notes">备注（选填）</label><textarea id="notes" maxlength="300" placeholder="补码、牌桌情况或其他备注"></textarea></div><div id="error" class="error" aria-live="polite"></div><div class="modal-actions"><div><button type="button" class="ghost danger hidden" id="delete">移入回收站</button></div><div style="display:flex;gap:9px"><button type="button" class="ghost" id="cancel">取消</button><button class="primary" id="submit" type="submit">保存记录</button></div></div></form></section></div>
+<div id="toast" class="toast" role="status"></div>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s);let data=[],trash=[],undoState=null,db=null,mode='net',editId=null,filter='all',toastTimer,chartRange='all',chartAxis='session';
+// V2.0: all private records live in Firestore under the signed-in user UID.
+let revision=0, activeUID=null, saving=false;
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function round(n){return Math.round((Number(n)+Number.EPSILON)*100)/100;}
+function yuan(n,sign=true){let v=round(n);return (v<0?'-':(v>0&&sign?'+':''))+'¥'+Math.abs(v).toLocaleString('zh-CN',{minimumFractionDigits:0,maximumFractionDigits:2});}
+function cl(n){return n>0?'green':n<0?'red':'neutral';}
+function genId(){return (globalThis.crypto?.randomUUID?.()||String(Date.now())+'-'+Math.random().toString(16).slice(2));}
+function localDate(){const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');}
+async function persist(next){
+ if(!activeUID||!window.pokerCloud)throw Error('请先登录');
+ if(saving)throw Error('正在保存上一次操作，请稍后重试');
+ const targetUID=activeUID, targetRevision=revision;
+ const snapshot={version:2,updatedAt:new Date().toISOString(),records:next,trash};
+ saving=true;$('#saved').textContent='⏳ 正在写入云端…';
+ try{
+   const result=await window.pokerCloud.write(targetUID,targetRevision,snapshot);
+   if(activeUID!==targetUID)throw Error('账号已切换，请重新检查记录');
+   revision=result;
+   data=next;$('#saved').textContent='✓ 已同步云端';render();
+ }catch(e){$('#saved').textContent='⚠ 保存失败，未确认写入';throw e}
+ finally{saving=false}
+}
+window.pokerLedgerReset=()=>{activeUID=null;data=[];trash=[];revision=0;undoState=null;$('#undo').disabled=true;render()};
+window.pokerLedgerReceive=(uid,snapshot,rev,source)=>{
+ if(saving&&uid===activeUID)return;
+ activeUID=uid;revision=rev;
+ data=(Array.isArray(snapshot?.records)?snapshot.records:[]).filter(validRecord).map(normalizeRecord);
+ trash=(Array.isArray(snapshot?.trash)?snapshot.trash:[]).filter(validRecord).map(normalizeRecord);
+ undoState=null;$('#undo').disabled=true;
+ $('#saved').textContent=source==='cache'?'⚠ 缓存数据，等待联网':'✓ 已同步云端';render();
+};
+window.pokerLedgerWarn=message=>{$('#saved').textContent='⚠ '+message};
+function validRecord(x){return x&&typeof x.id==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&typeof x.place==='string'&&Number.isFinite(Number(x.players))&&Number(x.players)>=2&&Number(x.players)<=12&&Number.isFinite(Number(x.net))&&Math.abs(Number(x.net))<1e12;}
+function normalizeRecord(x){return {...x,net:round(x.net),players:Number(x.players),mode:x.mode==='calc'?'calc':'net',gameType:x.gameType==='tournament'?'tournament':'cash',stakes:typeof x.stakes==='string'?x.stakes:'',startTime:x.startTime||'',endTime:x.endTime||''};}
+function hours(x){if(!x.startTime||!x.endTime)return null;const a=new Date(x.startTime),b=new Date(x.endTime),n=(b-a)/36e5;return Number.isFinite(n)&&n>0&&n<=168?n:null}
+function fmtHours(n){if(n===null)return '—';const m=Math.round(n*60);return `${Math.floor(m/60)}h ${String(m%60).padStart(2,'0')}m`}
+function captureUndo(){undoState={data:data.map(x=>({...x})),trash:trash.map(x=>({...x}))};$('#undo').disabled=false}
+async function undoLast(){if(!undoState)return;const former=undoState;const priorTrash=trash;trash=former.trash;try{await persist(former.data);undoState=null;$('#undo').disabled=true;toast('✓ 已撤销上一步')}catch(e){trash=priorTrash;alert('撤销失败：'+e.message)}}
+function renderExtra(list){const n=list.length,w=list.filter(x=>x.net>0).length,allHours=list.reduce((a,x)=>a+(hours(x)||0),0),timedNet=list.filter(x=>hours(x)!==null).reduce((a,x)=>a+x.net,0);const asc=[...list].sort((a,b)=>a.date.localeCompare(b.date)||(a.createdAt||'').localeCompare(b.createdAt||''));let runW=0,runL=0,maxW=0,maxL=0,bal=0,peak=0,drawdown=0;for(const x of asc){runW=x.net>0?runW+1:0;runL=x.net<0?runL+1:0;maxW=Math.max(maxW,runW);maxL=Math.max(maxL,runL);bal=round(bal+x.net);peak=Math.max(peak,bal);drawdown=Math.max(drawdown,peak-bal)}const items=[['盈利场次占比',n?(w/n*100).toFixed(1)+'%':'—'],['场均净输赢',n?yuan(list.reduce((a,x)=>a+x.net,0)/n):'—'],['每小时净输赢',allHours?yuan(timedNet/allHours)+'/h':'—'],['累计记录时长',allHours?fmtHours(allHours):'—'],['最大单场盈利',list.some(x=>x.net>0)?yuan(Math.max(...list.map(x=>x.net))):'—'],['最大单场亏损',list.some(x=>x.net<0)?yuan(Math.min(...list.map(x=>x.net))):'—'],['最长连赢 / 连输',maxW+' / '+maxL+' 场'],['最大回撤',yuan(-drawdown,false)]];$('#advancedStats').innerHTML=items.map(([k,v])=>`<div class="metric"><div class="k">${k}</div><div class="v">${escapeHTML(v)}</div></div>`).join('');const places=new Map();for(const x of list){const z=places.get(x.place)||{n:0,net:0,w:0};z.n++;z.net+=x.net;z.w+=x.net>0?1:0;places.set(x.place,z)}$('#locationStats').innerHTML=places.size?[...places].sort((a,b)=>b[1].n-a[1].n).map(([p,v])=>`<div class="location-row"><div><b>${escapeHTML(p)}</b><div class="subline">${v.n} 场 · 盈利场次占比 ${(v.w/v.n*100).toFixed(0)}% · 场均 ${yuan(v.net/v.n)}</div></div><strong class="${cl(v.net)}">${yuan(v.net)}</strong></div>`).join(''):'<p class="muted">暂无地点数据</p>';$('#trashCount').textContent='('+trash.length+')';$('#trashBox').innerHTML=trash.length?trash.slice().reverse().map(x=>`<div class="trash-card"><div><b>${escapeHTML(x.date)} · ${escapeHTML(x.place)}</b><div class="subline">${escapeHTML(yuan(x.net))}</div></div><button class="mini-btn" data-restore="${escapeHTML(x.id)}">恢复</button></div>`).join(''):'<p class="muted">回收站为空</p>'}
+function updateQuickPlaces(){const all=[...new Set(data.map(x=>x.place))];const sorted=all.map(place=>({place,n:data.filter(x=>x.place===place).length})).sort((a,b)=>b.n-a.n).slice(0,6);$('#quickPlaces').innerHTML=sorted.map(x=>`<button type="button" class="quickplace" data-place="${escapeHTML(x.place)}">${escapeHTML(x.place)}</button>`).join('')}
+function copySession(id){const x=data.find(x=>x.id===id);if(!x)return;showModal(null);$('#modalTitle').textContent='复制上一场 · 新牌局';$('#players').value=x.players;$('#place').value=x.place;$('#gameType').value=x.gameType||'cash';$('#stakes').value=x.stakes||'';$('#startTime').value='';$('#endTime').value='';$('#netInput').value='';$('#buyin').value='';$('#cashout').value='';$('#notes').value='';selectMode(x.mode);updateTimePreview()}
+function updateTimePreview(){const a=$('#startTime').value,b=$('#endTime').value;if(!a&&!b){$('#durationPreview').textContent='填写开始和结束时间后自动计算时长及每小时输赢。';return}const h=hours({startTime:a,endTime:b});$('#durationPreview').textContent=h===null?'请填写有效的起止时间，结束时间须晚于开始时间（最多168小时）。':`游戏时长：${fmtHours(h)} · 每小时净输赢：${calculated()===null?'待输入金额':yuan(calculated()/h)+'/h'}`}
+
+function render(){let months=[...new Set(data.map(x=>x.date.slice(0,7)))].sort().reverse();const f=$('#filter');f.innerHTML='<option value="all">全部时间</option>'+months.map(m=>`<option value="${m}">${m.slice(0,4)}年${m.slice(5)}月</option>`).join('');if(filter!=='all'&&!months.includes(filter))filter='all';f.value=filter;let list=data.filter(x=>filter==='all'||x.date.startsWith(filter)).sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||''));let net=round(list.reduce((s,x)=>s+x.net,0)),w=list.filter(x=>x.net>0).length,l=list.filter(x=>x.net<0).length;$('#net').textContent=yuan(net);$('#net').className='hero-value '+cl(net);$('#netDetail').textContent=filter==='all'?'所有已保存牌局的净输赢':'所选月份的净输赢';$('#count').innerHTML=list.length+' <span style="font-size:12px;color:var(--sub)">场</span>';$('#wins').textContent=w;$('#losses').textContent=l;$('#recordN').textContent='('+list.length+')';$('#rows').innerHTML=list.map(x=>`<tr><td>${escapeHTML(x.date)}</td><td><span class="place">${escapeHTML(x.place)}</span>${x.notes?`<div class="muted" style="font-size:11px;margin-top:5px;max-width:180px;overflow-wrap:anywhere">${escapeHTML(x.notes)}</div>`:''}</td><td><span class="pill">${x.players} 人局</span></td><td>${x.gameType==='tournament'?'锦标赛':'现金局'}<div class="subline">${escapeHTML(x.stakes||'—')}</div></td><td>${fmtHours(hours(x))}${hours(x)!==null?`<div class="subline">${yuan(x.net/hours(x))}/h</div>`:''}</td><td class="muted">${x.mode==='calc'?'买入计算':'直接录入'}</td><td class="profit ${cl(x.net)}">${yuan(x.net)}</td><td><div class="inline-tools"><button class="textbtn" data-edit="${escapeHTML(x.id)}">编辑</button><button class="textbtn" data-copy="${escapeHTML(x.id)}">复制</button></div></td></tr>`).join('');$('#table').classList.toggle('hidden',!list.length);$('#empty').classList.toggle('hidden',!!list.length);renderExtra(list);renderChart();}
+
+
+function renderChart(){
+ const root=$('#chartViewport'),details=$('#chartDetails');
+ const chronological=[...data].sort((a,b)=>a.date.localeCompare(b.date)||(a.createdAt||'').localeCompare(b.createdAt||'')||a.id.localeCompare(b.id));
+ if(!chronological.length){root.innerHTML='<div class="chart-no-data">♠ 尚无战绩，记录第一场牌局即可生成趋势曲线</div>';details.textContent='新增牌局后，趋势图会自动展示每场累计输赢。';return}
+ let balance=0;const full=chronological.map((r,i)=>({r,index:i+1,net:round(balance+=r.net)}));
+ let start=null;if(chartRange!=='all'){const d=new Date(localDate()+'T00:00:00');d.setDate(d.getDate()-Number(chartRange)+1);start=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')}
+ const visible=full.filter(p=>(!start||p.r.date>=start)&&p.r.date<=localDate());
+ if(!visible.length){root.innerHTML='<div class="chart-no-data">该时间段内还没有牌局记录</div>';details.textContent='切换时间范围可以查看历史战绩。';return}
+ let pts=visible;
+ if(chartAxis==='date'){
+   const byDate=new Map();for(const p of visible)byDate.set(p.r.date,p);
+   pts=[...byDate.values()];
+ }
+ const W=860,H=290,L=67,R=20,T=22,B=46,plotW=W-L-R,plotH=H-T-B;
+ let min=Math.min(0,...pts.map(p=>p.net)),max=Math.max(0,...pts.map(p=>p.net));
+ if(max===min){max+=100;min-=100}else{const pad=(max-min)*.14;max+=pad;min-=pad}
+ const fy=v=>T+(max-v)/(max-min)*plotH;
+ let rawX;
+ if(chartAxis==='date'){
+  const dates=pts.map(p=>new Date(p.r.date+'T00:00:00').getTime()),lo=dates[0],hi=dates[dates.length-1];rawX=(p,i)=>hi===lo?L+plotW/2:L+(dates[i]-lo)/(hi-lo)*plotW;
+ }else rawX=(p,i)=>pts.length===1?L+plotW/2:L+i/(pts.length-1)*plotW;
+ const coords=pts.map((p,i)=>({...p,x:rawX(p,i),y:fy(p.net)}));
+ const path=coords.map((p,i)=>(i?'L':'M')+p.x.toFixed(2)+','+p.y.toFixed(2)).join(' ');
+ let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="累计盈亏折线图，${pts.length}个数据点">`;
+ for(let i=0;i<=4;i++){let v=min+(max-min)*i,y=fy(v);svg+=`<line class="chart-grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text x="${L-11}" y="${y+4}" text-anchor="end" fill="#b0a38a" font-size="12">${escapeHTML(compactMoney(v))}</text>`}
+ if(min<=0&&max>=0)svg+=`<line class="chart-zero" x1="${L}" x2="${W-R}" y1="${fy(0)}" y2="${fy(0)}"/>`;
+ const labelIndices=[...new Set([0,Math.floor((pts.length-1)/2),pts.length-1])];
+ for(const i of labelIndices){const p=coords[i];const label=chartAxis==='date'?p.r.date.slice(5):'第'+p.index+'场';svg+=`<text x="${p.x}" y="${H-16}" text-anchor="middle" fill="#aa9b81" font-size="12">${escapeHTML(label)}</text>`}
+ if(coords.length>1){svg+=`<path d="${path}" fill="none" stroke="#d9b66d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`}
+ for(let i=0;i<coords.length;i++){const p=coords[i],shown=coords.length<=60||i===0||i===coords.length-1;svg+=`<circle class="chart-point" data-point="${i}" tabindex="0" role="button" aria-label="${escapeHTML(p.r.date)} 累计${escapeHTML(yuan(p.net))}" cx="${p.x}" cy="${p.y}" r="${shown?5:8}" fill="${p.net<0?'#f18d8b':'#edce85'}" stroke="#14110d" stroke-width="2" ${shown?'':'opacity="0.35"'}/>`}
+ svg+='</svg>';root.innerHTML=svg;
+ function show(i){const p=coords[i];details.innerHTML=`<strong style="color:#edce85">${escapeHTML(p.r.date)}</strong>　${escapeHTML(p.r.place)} · ${p.r.players}人局　<span>本场 <strong class="${cl(p.r.net)}">${yuan(p.r.net)}</strong>　累计 <strong class="${cl(p.net)}">${yuan(p.net)}</strong></span>`}
+ root.querySelectorAll('[data-point]').forEach(el=>{el.addEventListener('click',()=>show(Number(el.dataset.point)));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(Number(el.dataset.point))}})});
+ show(coords.length-1);
+}
+function compactMoney(n){const a=Math.abs(n),sign=n<0?'-':'';return sign+'¥'+(a>=10000?(a/10000).toFixed(1)+'万':Math.round(a).toLocaleString('zh-CN'))}
+$('#chartRanges').addEventListener('click',e=>{const b=e.target.closest('[data-range]');if(!b)return;chartRange=b.dataset.range;$('#chartRanges').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderChart()});
+$('#chartAxes').addEventListener('click',e=>{const b=e.target.closest('[data-axis]');if(!b)return;chartAxis=b.dataset.axis;$('#chartAxes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderChart()});
+
+function selectMode(m){mode=m;$('#tabNet').classList.toggle('active',m==='net');$('#tabCalc').classList.toggle('active',m==='calc');$('#netFields').classList.toggle('hidden',m!=='net');$('#calcFields').classList.toggle('hidden',m!=='calc');updatePreview();}
+function calculated(){if(mode==='net')return $('#netInput').value.trim()===''?null:Number($('#netInput').value);if($('#buyin').value.trim()===''||$('#cashout').value.trim()==='')return null;return round(Number($('#cashout').value)-Number($('#buyin').value));}
+function updatePreview(){const n=calculated();$('#preview').textContent=n===null?'待输入':yuan(n);$('#preview').className=n===null?'muted':cl(n);updateTimePreview();}
+function showModal(id=null){editId=id;const x=id?data.find(x=>x.id===id):null;$('#modalTitle').textContent=x?'编辑牌局':'记录新牌局';$('#delete').classList.toggle('hidden',!x);$('#date').value=x?.date||localDate();$('#players').value=x?.players||'';$('#place').value=x?.place||'';$('#notes').value=x?.notes||'';$('#gameType').value=x?.gameType||'cash';$('#stakes').value=x?.stakes||'';$('#startTime').value=x?.startTime||'';$('#endTime').value=x?.endTime||'';updateQuickPlaces();$('#netInput').value=x?.net??'';$('#buyin').value=x?.buyin??'';$('#cashout').value=x?.cashout??'';$('#error').textContent='';selectMode(x?.mode||'net');$('#modal').classList.add('show');document.body.style.overflow='hidden';setTimeout(()=>$('#place').focus(),30);}
+function hideModal(){$('#modal').classList.remove('show');document.body.style.overflow='';}
+function toast(t){$('#toast').textContent=t;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),3100);}
+$('#add').onclick=()=>showModal();$('#addTop').onclick=()=>showModal();$('#cancel').onclick=hideModal;$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))hideModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')hideModal()});$('#tabNet').onclick=()=>selectMode('net');$('#tabCalc').onclick=()=>selectMode('calc');['netInput','buyin','cashout'].forEach(id=>$('#'+id).addEventListener('input',updatePreview));$('#filter').onchange=e=>{filter=e.target.value;render()};$('#rows').onclick=e=>{const c=e.target.closest('[data-copy]'),b=e.target.closest('[data-edit]');if(c)copySession(c.dataset.copy);else if(b)showModal(b.dataset.edit)};$('#quickPlaces').onclick=e=>{const b=e.target.closest('[data-place]');if(b)$('#place').value=b.dataset.place};['startTime','endTime'].forEach(id=>$('#'+id).addEventListener('change',updateTimePreview));$('#undo').onclick=undoLast;$('#toggleTrash').onclick=()=>$('#trashBox').classList.toggle('hidden');$('#trashBox').onclick=async e=>{const b=e.target.closest('[data-restore]');if(!b)return;const x=trash.find(x=>x.id===b.dataset.restore);if(!x)return;captureUndo();const oldTrash=trash;trash=trash.filter(t=>t.id!==x.id); try{await persist([...data,x]);toast('✓ 已从回收站恢复')}catch(err){trash=oldTrash;undoState=null;$('#undo').disabled=true;alert('恢复失败：'+err.message)}};
+$('#form').onsubmit=async e=>{e.preventDefault();const date=$('#date').value,players=Number($('#players').value),place=$('#place').value.trim(),notes=$('#notes').value.trim(),net=calculated();if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isInteger(players)||players<2||players>12||!place||net===null||!Number.isFinite(net)||Math.abs(net)>=1e12){$('#error').textContent='请填写有效日期、地点、人数与金额。';return}const buyin=mode==='calc'?Number($('#buyin').value):null,cashout=mode==='calc'?Number($('#cashout').value):null;if(mode==='calc'&&(buyin<0||cashout<0)){ $('#error').textContent='买入和带走金额不可为负数。';return}const startTime=$('#startTime').value,endTime=$('#endTime').value,stakes=$('#stakes').value.trim(),gameType=$('#gameType').value;if((startTime&&!endTime)||(!startTime&&endTime)||(startTime&&endTime&&hours({startTime,endTime})===null)){ $('#error').textContent='请填写完整且有效的游戏起止时间。';return}const old=editId?data.find(x=>x.id===editId):null;const item={id:editId||genId(),date,players,place,notes,mode,gameType,stakes,startTime,endTime,net:round(net),buyin,cashout,createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};const next=editId?data.map(x=>x.id===editId?item:x):[...data,item];$('#submit').disabled=true;captureUndo();try{await persist(next);hideModal();toast('✓ 已保存牌局')}catch(err){undoState=null;$('#undo').disabled=true;$('#error').textContent='保存失败：'+err.message}finally{$('#submit').disabled=false}};
+$('#delete').onclick=async()=>{if(!editId||!confirm('确定将这场牌局移入回收站吗？以后可以恢复。'))return;const x=data.find(x=>x.id===editId);if(!x)return;captureUndo();const formerTrash=trash;trash=[...trash,x];try{await persist(data.filter(r=>r.id!==editId));hideModal();toast('已移入回收站，可撤销或恢复')}catch(err){trash=formerTrash;undoState=null;$('#undo').disabled=true;$('#error').textContent='删除失败：'+err.message}};
+
+function exportFile(){const obj={app:'Poker Ledger',version:2,exportedAt:new Date().toISOString(),records:data,trash:trash};const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='poker-ledger-backup-'+localDate()+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);toast('已生成备份文件，请妥善保存')}
+$('#export').onclick=exportFile;$('#exportTop').onclick=exportFile;$('#import').onclick=()=>$('#file').click();$('#file').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>10*1024*1024)throw Error('文件过大');const obj=JSON.parse(await file.text());if(!Array.isArray(obj.records)||obj.records.length>50000||!obj.records.every(validRecord))throw Error('备份格式错误或记录不完整');if(!confirm(`即将导入 ${obj.records.length} 场牌局，覆盖当前账号云端现有的 ${data.length} 场记录。此操作不可撤销，确认继续吗？`))return;const unique=[...new Map(obj.records.map(x=>[x.id,normalizeRecord(x)])).values()];const formerTrash=trash;trash=(Array.isArray(obj.trash)?obj.trash.filter(validRecord).map(normalizeRecord):[]).filter(x=>!unique.some(a=>a.id===x.id));try{await persist(unique)}catch(err){trash=formerTrash;throw err}undoState=null;$('#undo').disabled=true;filter='all';render();toast('✓ 数据恢复成功')}catch(err){alert('导入失败：'+err.message)}finally{e.target.value=''}};
+// Authentication listener initializes remote state. No local data is auto-imported.
+})();
+</script>
+<script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
+import {getAuth,onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendPasswordResetEmail,signOut} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
+import {getFirestore,doc,onSnapshot,runTransaction} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
+const firebaseConfig = {
+ apiKey: "AIzaSyBGy1XQ_y11ggzFHbbL7N9o84shsQ6Na24",
+ authDomain: "poker-ledger-aadb1.firebaseapp.com",
+ projectId: "poker-ledger-aadb1",
+ storageBucket: "poker-ledger-aadb1.firebasestorage.app",
+ messagingSenderId: "716283083929",
+ appId: "1:716283083929:web:762b9ec4dd408a82f84c08"
+};
+const $=s=>document.querySelector(s),app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
+let unregister=null,uid=null,mode='login';
+function message(s){$('#authError').textContent=s}
+function friendly(e){const c=e?.code||'';return ({'auth/invalid-credential':'邮箱或密码不正确','auth/email-already-in-use':'邮箱已注册，请切换到登录','auth/weak-password':'密码至少需要 6 位','auth/invalid-email':'邮箱格式不正确','auth/too-many-requests':'尝试次数过多，请稍后再试','auth/network-request-failed':'网络连接失败，请检查网络'}[c]||e.message||'操作失败')}
+function showAuth(){document.querySelector('#authGate').hidden=false;$('#appShell').hidden=true;$('#password').value='';}
+function showApp(user){$('#authGate').hidden=true;$('#appShell').hidden=false;$('#who').textContent=user.email||'当前账号';}
+function setMode(m){mode=m;$('#loginTab').classList.toggle('active',m==='login');$('#registerTab').classList.toggle('active',m==='register');$('#authSubmit').textContent=m==='login'?'登录':'创建账号';$('#password').autocomplete=m==='login'?'current-password':'new-password';message('')}
+$('#loginTab').onclick=()=>setMode('login');$('#registerTab').onclick=()=>setMode('register');
+$('#authForm').onsubmit=async e=>{e.preventDefault();const email=$('#email').value.trim(),password=$('#password').value;$('#authSubmit').disabled=true;message('');try{if(mode==='login')await signInWithEmailAndPassword(auth,email,password);else await createUserWithEmailAndPassword(auth,email,password)}catch(err){message(friendly(err))}finally{$('#authSubmit').disabled=false}};
+$('#resetPassword').onclick=async()=>{const email=$('#email').value.trim();if(!email){message('请先输入邮箱地址');return}try{await sendPasswordResetEmail(auth,email);message('如果该邮箱已注册，将收到密码重置邮件，请检查邮箱')}catch(e){message(friendly(e))}};
+$('#logout').onclick=()=>signOut(auth).catch(e=>alert(friendly(e)));
+window.pokerCloud={async write(account,expectedRevision,snapshot){
+ if(account!==uid||auth.currentUser?.uid!==account)throw Error('登录状态已变更');
+ const ref=doc(db,'users',account,'private','ledger');
+ const newRevision=await runTransaction(db,async tx=>{
+   const old=await tx.get(ref),current=old.exists()?Number(old.data().revision||0):0;
+   if(current!==expectedRevision)throw Error('云端记录已有更新，请刷新后再操作，避免覆盖其他设备的修改');
+   const next=current+1;tx.set(ref,{...snapshot,revision:next});return next;
+ });return newRevision;
+}};
+let generation=0;
+onAuthStateChanged(auth,user=>{
+ const g=++generation;if(unregister){unregister();unregister=null}
+ window.pokerLedgerReset?.();
+ if(!user){uid=null;showAuth();return}
+ uid=user.uid;showApp(user);$('#saved').textContent='⏳ 正在加载云端记录…';
+ const ref=doc(db,'users',uid,'private','ledger');
+ unregister=onSnapshot(ref,{includeMetadataChanges:true},snap=>{
+   if(g!==generation||uid!==user.uid)return;
+   if(snap.metadata.hasPendingWrites)return;
+   const obj=snap.exists()?snap.data():{records:[],trash:[],revision:0};
+   window.pokerLedgerReceive?.(user.uid,obj,Number(obj.revision||0),snap.metadata.fromCache?'cache':'server');
+ },err=>{if(g!==generation)return;window.pokerLedgerWarn?.('读取失败：'+friendly(err));alert('云端读取失败：'+friendly(err))});
+},err=>message(friendly(err)));
+</script>
+</body></html>
