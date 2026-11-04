@@ -1,12 +1,12 @@
 {
-  "name": "Poker Ledger — 个人德州战绩",
+  "name": "Poker Ledger — 奶油白口袋战绩",
   "short_name": "Poker Ledger",
-  "description": "私人云端德州扑克战绩记录",
+  "description": "个人云端德州扑克战绩，记录线上和线下牌局",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#090909",
-  "theme_color": "#090909",
+  "background_color": "#FFF7EB",
+  "theme_color": "#FFF7EB",
   "icons": [
     {
       "src": "./icon-192.png",

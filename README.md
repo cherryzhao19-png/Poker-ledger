@@ -1,26 +1,15 @@
-# Poker Ledger V2.0
+# Poker Ledger V2.1 — Preview
 
-黑金德州战绩追踪，公开邮箱注册，Firebase Authentication + Cloud Firestore 按 UID 隔离。
+奶油白卡通 UI，五栏导航：首页 / 牌局 / 趋势 / 分析 / 我的。新增线上 Online / 线下 Live 分类、历史未分类、筛选与统计。
 
-## GitHub Pages
-1. 将 `index.html`、`manifest.webmanifest`、`icon-180.png`、`icon-192.png`、`icon-512.png` 上传到仓库根目录（main 分支）。
-2. 仓库 Settings → Pages → Build and deployment → Deploy from a branch → main → /(root) → Save。
-3. 访问 https://cherryzhao19-png.github.io/Poker-ledger/ 。
+## 数据兼容性
 
-## Firebase
-使用 Firebase 项目 `poker-ledger-aadb1`：启用 Authentication → Email/Password，Cloud Firestore；在 Authentication → Settings → Authorized domains 添加 `cherryzhao19-png.github.io`。
-确认 Firestore `firestore.rules` 与线上已发布规则相同。此文件只用于备份，不要上传到 GitHub Pages 作为必要资源。
+继续使用 V2.0 的 Firebase 项目 `poker-ledger-aadb1`、Authentication 和 Firestore 文档路径 `users/{uid}/private/ledger`。原 `records`、`trash`、`revision` 字段保留；每条新记录新增可选 `playMode`。历史数据无 `playMode` 时显示“未分类”。不需要迁移或清空数据库。
 
-## 数据与兼容性
-- 本版仅从当前账号的 `users/{uid}/private/ledger` 读取数据，不能读取其他 UID 的记录。数据首次保存时自动生成。
-- 旧版 JSON 需要登录后使用「恢复备份」主动导入；导入会**覆盖当前账号**已有记录，请提前导出备份。
-- 同账号多设备可读取云端同步数据。每次写入使用 Firestore transaction + revision 比对，检测修改冲突而不静默覆盖。
-- 需要联网才能确认写入成功；浏览器已有数据显示不意味着操作已同步。
-- Firebase 免费额度、文档 1 MiB 大小限制及项目计费限制适用；长期高频使用建议迁移到每场独立文档，并配置后台备份。
-- 账号权限由 Firestore Rules 保护；公开注册场景建议开启 Firebase App Check 或反滥用保护，监控配额。
+## 本地预览与上线
 
-## 验收
-1. A 注册并新增一场，刷新页面、另一设备用 A 登录观察是否存在。
-2. B 注册并登录，应显示 0 场；Firestore Rules Playground 以 B UID 尝试访问 A 路径应被拒绝。
-3. A 编辑/删除/恢复牌局，确认历史与累计图自动更新。
-4. 导出 JSON 后导入测试账号，确保字段兼容；不要在真实账号覆盖前跳过备份。
+不要直接用本地 file:// 打开测试 Firebase。可使用本地 HTTP 服务只检查 UI，但完整的邮箱登录需要 Firebase Authentication 授权域名。建议在 GitHub 独立预览仓库中部署进行真实测试；向 Firebase 添加对应的 GitHub Pages 域名（若尚未授权）。
+
+正式替换前，请在当前 V2.0 网站“我的/备份数据”里导出 JSON 备份。先用测试账号检查线上/线下筛选、编辑、删除、回收站、跨账号权限。验证通过再上传新文件至原仓库 `main` 根目录。
+
+项目本身没有自动修改线上 GitHub 仓库。
